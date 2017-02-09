@@ -1,0 +1,9 @@
+{
+  "options": {
+    "rulesDirectory": "node_modules/tslint-microsoft-contrib",
+    "configuration": "tslint.json"
+  },
+  "files": {
+    "src": ["src/file1.ts", "src/file2.ts"]
+  }
+}
