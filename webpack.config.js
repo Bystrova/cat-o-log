@@ -13,16 +13,17 @@ module.exports = {
   },
   output: {
     path: helpers.root('dist'),
-    publicPath: 'http://localhost:8080/',
+    publicPath: 'http://localhost:8000/',
     filename: '[name].js',
     chunkFilename: '[id].chunk.js'
   },
 
   devtool: 'inline-source-map',
   devServer: {
+    port: 8000,
     inline: true,
     historyApiFallback: true,
-    stats: 'minimal'
+    // stats: 'minimal'
   },
   watch: true,
 
