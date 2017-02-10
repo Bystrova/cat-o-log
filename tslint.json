@@ -5,7 +5,7 @@
       false
     ],
     "no-any": true,
-    "no-inferrable-types": true,
+    "no-inferrable-types": [true],
     "no-internal-module": true,
     "no-var-requires": false,
     "typedef": [
@@ -74,7 +74,7 @@
       true,
       "always-prefix"
     ],
-    "no-consecutive-blank-lines": true,
+    "no-consecutive-blank-lines": [true, 3],
     "one-line": [
       true
     ],
@@ -85,7 +85,7 @@
     ],
     "semicolon": [
       true,
-      "never"
+      "always"
     ],
     "variable-name": [
       true
