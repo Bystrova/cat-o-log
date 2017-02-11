@@ -1,4 +1,9 @@
 const cats = require('./cats-service');
+const path = require('path');
+const fs = require('fs');
+const multer = require('multer')
+
+const PICTURES_FOLDER = path.resolve(__dirname, '../public/cats');
 
 module.exports = router => {
   router.use((req, res, next) => {
@@ -11,7 +16,9 @@ module.exports = router => {
       resp.json(cats.all());
     })
     .post((req, resp) => {
-      if (cats.add(req.body))
+      let cat = req.body;
+      cat.id = cats.lastId();
+      if (cats.add(cat))
         resp.status(200).send();
       else
         resp.status(500).json({
@@ -46,7 +53,31 @@ module.exports = router => {
           error: "cat deletion error"
         });
     });
-};
+
+  var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, PICTURES_FOLDER);
+    },
+    filename: function (req, file, cb) {
+      cb(null, 'cat-' + cats.lastId() + path.extname(file.originalname));
+    }
+  })
+  const upload = multer({
+    storage: storage
+  });
+
+  router.post('/cats/upload', upload.single('cat_pic'), (req, resp) => {
+    if (!req.file) {
+      resp.status(400).send({
+        error: "no files was upload"
+      });
+    } else {
+      resp.status(200).send();
+    }
+  });
+}
+
+
 
 function _isCatIdValid(req, resp) {
   if (typeof +req.params.cat_id != 'number') {

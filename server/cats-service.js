@@ -30,6 +30,15 @@ function count() {
   return _readCats().length;
 }
 
+function lastId() {
+  let lastId = -1;
+  for (let cat of _readCats()) {
+    if (cat.id > lastId) 
+      lastId = cat.id;
+  }
+  return lastId + 1;
+}
+
 function _removeOrReplace(id, newCat) {
   let cats = _readCats(), isUpdated = false;
   cats.find((el, index, arr) => {
@@ -79,4 +88,5 @@ module.exports = {
   remove,
   replace,
   count,
+  lastId,
 };

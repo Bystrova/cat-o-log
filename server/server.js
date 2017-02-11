@@ -5,12 +5,9 @@ const app = new Express();
 const server = new http.Server(app);
 const router = Express.Router();
 
-const bodyParser = require('body-parser');
-const fileUpload = require('express-fileupload');
-
 const port = 8080;
 
-app.use(fileUpload());
+const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({
   extended: true
 }));
@@ -26,9 +23,7 @@ app.all('*', function (req, resp, next) {
 });
 
 router.get('/', (req, res) => {
-  res.json({
-    "cats": "meow"
-  });
+  res.sendFile(require('path').join(__dirname, 'index.html'));
 });
 
 app.use(router);
