@@ -13,9 +13,7 @@ module.exports = router => {
 
   router.route('/cats')
     .get((req, resp) => {
-      setTimeout(() => {
-        resp.json(cats.all())
-      }, 5000);
+      resp.json(cats.all());
     })
     .post((req, resp) => {
       let cat = req.body;

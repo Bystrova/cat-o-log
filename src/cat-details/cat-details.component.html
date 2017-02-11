@@ -1,6 +1,18 @@
 <div>
     <h3>Cat Details Form</h3>
     <div *ngIf="selectedCat">
-        Selected Cat Name: {{ selectedCat.name }}
+        <cat-picture [photoId]="selectedCat.photoId"></cat-picture>
+        <div>
+            <input [(ngModel)]="selectedCat.name">
+        </div>
+        <div>
+            <input [(ngModel)]="selectedCat.sex">
+        </div>
+        <div>
+            <input [(ngModel)]="selectedCat.age">
+        </div>
+        <div>
+            <textarea [(ngModel)]="selectedCat.about"></textarea>
+        </div>
     </div>
 </div>
