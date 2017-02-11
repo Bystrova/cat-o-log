@@ -1,0 +1,8 @@
+<div>
+    <h3>Cat List</h3>
+    <div>
+        <cat-list-item *ngFor="let cat of catsList" [cat]="cat" 
+            (click)="selectCat(cat)"
+        ></cat-list-item>
+    </div>
+</div>

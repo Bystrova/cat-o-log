@@ -13,7 +13,9 @@ module.exports = router => {
 
   router.route('/cats')
     .get((req, resp) => {
-      resp.json(cats.all());
+      setTimeout(() => {
+        resp.json(cats.all())
+      }, 5000);
     })
     .post((req, resp) => {
       let cat = req.body;
@@ -29,7 +31,7 @@ module.exports = router => {
 
   router.route('/cats/:cat_id')
     .get((req, resp) => {
-      if (_isCatIdValid(req. resp)) {
+      if (_isCatIdValid(req, resp)) {
         resp.json(cats.byId(+req.params.cat_id)); 
       }
     })

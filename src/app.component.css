@@ -1,0 +1,26 @@
+.root {
+    display: flex;
+    font-family: arial;
+    height: 100%;
+}
+.header {
+    font-family: helvetica;
+    margin: auto;
+    width: 200px;
+}
+
+.list {
+    padding: 10px;
+    width: 100px;
+    border: 2px solid lightskyblue;
+    border-collapse: collapse;
+    background-color: lightskyblue;
+}
+
+.details {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid tan;
+    border-collapse: collapse;
+    background-color: tan;
+}
