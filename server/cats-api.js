@@ -18,6 +18,7 @@ module.exports = router => {
     .post((req, resp) => {
       let cat = req.body;
       cat.id = cats.lastId();
+      cat.photoId = cats.lastId();
       if (cats.add(cat))
         resp.status(200).send();
       else
